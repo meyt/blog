@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+    <title>MeyT blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="MeyTGHG">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://0.0.0.0:8000/output/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://0.0.0.0:8000/output/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://0.0.0.0:8000/output/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://0.0.0.0:8000/output/theme/local.css" rel="stylesheet">
+    <link href="http://0.0.0.0:8000/output/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://0.0.0.0:8000/output">MeyT blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://0.0.0.0:8000/output/create-wifi-hotspot-linux-arch.html"><h1>ساختن Wifi - Hotspot در لینوکس</h1></a>
+Sun 11 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><p>اشتراک گزاری اینترنت یا ایجاد شبکه محلی با دستگاه های دارای وای‌فای
+- توزیع انتخابی Arch
+- برنامه مورد نیاز create_ap </p>
+<p>1) تشخیص دستگاهی که از AP پشتیبانی میکنه</p>
+<div class="highlight"><pre><span class="nv">$ </span>iw list
+</pre></div>
+
+
+<p>خروجی مثل این رو میبینین که اگه AP جز لیست بود میریم مرحله بعدی ...</p>
+<div class="highlight"><pre>Wiphy phy1
+...
+Supported interface modes:
+* IBSS
+* managed
+* AP
+* AP/VLAN
+* WDS
+* monitor
+* mesh point
+...
+</pre></div>
+
+
+<p>۲) نصب برنامه </p>
+<div class="highlight"><pre><span class="p">$</span><span class="nv">yaourt</span><span class="x"> -S create_ap</span>
+</pre></div>
+
+
+<p>یا
+https://github.com/oblique/create_ap</p>
+<p>۳) تشخیص اینترفیس </p>
+<div class="highlight"><pre><span class="nv">$ </span>iw dev
+</pre></div>
+
+
+<p>خروجی مثل این رو میبینید که نشون میده اینترفیس شبکه دستگاه phy0 برابر wlp2s0</p>
+<div class="highlight"><pre>phy#0
+Interface wlp2s0
+ifindex 3
+wdev 0x1
+addr 24:0a:64:83:f0:e9
+type managed
+channel 6 (2437 MHz), width: 20 MHz, center1: 2437 MHz
+</pre></div>
+
+
+<p>۳ ) ایجاد hotspot یا access point</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo create_ap wlp2s0 wlp2s0 MyAccessPoint MyPassword
+
+:: <span class="nv">MyAccessPoint</span> <span class="o">=</span> نام نقطه دستیابی
+:: <span class="nv">MyPassword</span> <span class="o">=</span> کلمه عبور
+</pre></div>
+
+
+<p>این دستور در حالت رمزگزاری WPA + WPA2 بود برای استفاده از حالت‌های دیگه از رفرنس خود برنامه میتونید استفاده کنید : https://github.com/oblique/create_ap</p>
+<div class="highlight"><pre>Examples
+No passphrase (open network):
+create_ap wlan0 eth0 MyAccessPoint
+
+WPA + WPA2 passphrase:
+create_ap wlan0 eth0 MyAccessPoint MyPassPhrase
+
+AP without Internet sharing:
+create_ap -n wlan0 MyAccessPoint MyPassPhrase
+
+Bridged Internet sharing:
+create_ap -m bridge wlan0 eth0 MyAccessPoint MyPassPhrase
+
+Bridged Internet sharing (pre-configured bridge interface):
+create_ap -m bridge wlan0 br0 MyAccessPoint MyPassPhrase
+
+Internet sharing from the same WiFi interface:
+create_ap wlan0 wlan0 MyAccessPoint MyPassPhrase
+
+Choose a different WiFi adapter driver
+create_ap --driver rtl871xdrv wlan0 eth0 MyAccessPoint MyPassPhrase
+
+No passphrase (open network) using pipe:
+echo -e &quot;MyAccessPoint&quot; | create_ap wlan0 eth0
+
+WPA + WPA2 passphrase using pipe:
+echo -e &quot;MyAccessPoint\nMyPassPhrase&quot; | create_ap wlan0 eth0
+
+Enable IEEE 802.11n
+create_ap --ieee80211n --ht_capab &#39;[HT40+]&#39; wlan0 eth0 MyAccessPoint MyPassPhrase
+</pre></div></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; قبلی</a></li>
+
+    <li class="active"><a href="http://0.0.0.0:8000/output/tag/arch.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; بعدی</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                دسترسی سریع
+                </li>
+            
+                <li><a href="http://0.0.0.0:8000/output">صفحه اول</a>
+                <li><a href="http://0.0.0.0:8000/output/archives.html">آرشیو</a>
+                <li><a href="http://0.0.0.0:8000/output/tags.html">برچسب ها</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                موضوعات
+                </li>
+                
+                <li><a href="http://0.0.0.0:8000/output/category/yddsht-h.html">یادداشت ها</a></li>
+                   
+            </ul>
+            </div>
+
+
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://0.0.0.0:8000/output">MeyT blog</a> &copy; MeyTGHG 2015</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://0.0.0.0:8000/output/theme/jquery1.8.3.js"></script>
+<script src="http://0.0.0.0:8000/output/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,200 @@
+/* Styling for Nav bar. Bg color, link color etc */
+@font-face{
+	font-family:'yekan';
+	src:url("./font/byekan-webfont.eot?#") format("eot"),url("./font/byekan-webfont.woff") format("woff"),url("./font/byekan-webfont.ttf") format("truetype")
+}
+@font-face{
+	font-family:'droid';
+	src:url("./font/DroidNaskh-Regular.eot");
+	src:url("./font/DroidNaskh-Regular.eot?#iefix") format("embedded-opentype"),url("./font/DroidNaskh-Regular.woff2") format("woff2"),url("./font/DroidNaskh-Regular.woff") format("woff"),url("./font/DroidNaskh-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight:normal
+}
+@font-face{
+	font-family:'droid';
+	src:url("./font/DroidNaskh-Bold.eot");
+	src:url("./font/DroidNaskh-Bold.eot?#iefix") format("embedded-opentype"),url("./font/DroidNaskh-Bold.woff2") format("woff2"),url("./font/DroidNaskh-Bold.woff") format("woff"),url("./font/DroidNaskh-Bold.ttf") format("truetype");
+	font-style:normal;
+	font-weight:bold;
+}
+
+.navbar-inner {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #2E435E;
+  background-image: -moz-linear-gradient(top, #2e435e, #172e50);
+  background-image: -ms-linear-gradient(top, #2e435e, #172e50);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e435e), to(#172e50));
+  background-image: -webkit-linear-gradient(top, #2e435e, #172e50);
+  background-image: -o-linear-gradient(top, #2e435e, #172e50);
+  background-image: linear-gradient(top, #2e435e, #172e50);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav > li > a { color: #49AFCD; }
+.navbar .divider-vertical { border-right: 1px solid #4D4D4D; }
+.navbar { margin-bottom: 4em; } 
+
+
+/* Styling for elements */
+body {
+font-size: 100%;
+direction:rtl;
+background: #fff url('./images/bg.png') top left repeat;
+overflow-x: hidden;
+ }
+p { font-size: 100%; line-height: 1.6em; margin-top: 0.8em; margin-bottom: 0.8em; }
+li { line-height: 1.6em; }
+h3 { margin-top: 2.5em; }
+.table th, .table td { line-height: 1.3em;text-align: right }
+
+/* Styling for articles */
+.article { padding-bottom:20px; padding-left: 40px; }
+.content-title { margin-bottom: 30px; }
+.article a:hover { text-decoration: none; } 
+
+
+
+/* Styling for the "other entries" section */
+/* Metadata */
+.well.small { padding: 6px 6px 4px; }
+
+/* Read more button */
+.btn-info.xsmall {
+    padding: 1px 3px 1px;
+    font-size: 11px;
+    float: right;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+/* Article summary */
+.summary { margin-bottom: 4em; }
+.summary pre { display: none; }
+
+
+/* Styling for Sidebar */
+.social a[href*='activestate.com']:before {content: url('./images/icons/activestate.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='atom.xml']:before {content: url('./images/icons/rss.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='bitbucket.org']:before {content: url('./images/icons/bitbucket.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='code.google.com']:before {content: url('./images/icons/phosting.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='delicious.com']:before {content: url('./images/icons/delicious.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='digg.com']:before {content: url('./images/icons/digg.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='facebook.com']:before {content: url('./images/icons/facebook.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='github.com']:before {content: url('./images/icons/github.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='gitorious.org']:before {content: url('./images/icons/gitorious.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='google.com/reader']:before {content: url('./images/icons/reader.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='jamendo.com']:before {content: url('./images/icons/jamendo.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='last.fm']:before {content: url('./images/icons/lastfm.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='linkedin.com']:before {content: url('./images/icons/linkedin.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='rss.xml']:before {content: url('./images/icons/rss.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='stackoverflow.com']:before {content: url('./images/icons/stackoverflow.png'); margin-right: 2px; vertical-align: -3px;}
+.social a[href*='twitter.com']:before {content: url('./images/icons/twitter.png'); margin-right: 2px; vertical-align: -3px;}
+
+
+.span9{
+	float: right;
+}
+
+.span3{
+	float: left;
+}
+
+
+a,p,h1,h2,h3,h4,h5,h6{
+	font-family: droid,yekan,arial,serif;
+}
+p{
+font-size: 0.9em;
+line-height: 2em;
+}
+
+pre,code,pre span,code span,pre *,code *{
+	direction:ltr;
+	font-family: Menlo,Monaco,"Courier New",monospace !important;
+}
+.highlighttable{
+    direction:ltr;
+    width: 100%;
+    text-align: left;
+}
+.highlighttable td{
+vertical-align: top;
+}
+
+.content-title{
+font-size: 0.7em;
+}
+.content-title h1{
+margin-bottom: 12px;
+}
+.well.small {
+font-size: 0.7em;
+margin-top: 9px;
+padding: 4px 5px 1px;
+}
+.article{
+position: relative;
+background-color: #FFF;
+padding: 13px 6px 0 6px;
+border: solid 1px #EEE;
+border-right-width: 2px;
+border-bottom-width: 2px;
+margin-bottom: 20px;
+}
+.navbar{
+overflow: hidden;
+}
+.navbar-inner{
+width: 100%;
+text-align: left;
+border-bottom: solid 4px #930425;
+background-color: #CD204E !important;
+background-image: none;
+min-height: 70px;
+box-shadow: none;
+}
+
+.navbar .brand{
+font-family: monospace,droid,arial,sans-serif;
+font-size: 1em;
+text-decoration: none;
+color: #FFF;
+line-height: 57px;
+font-weight: normal;
+text-shadow: 0 1px 1px #BBB;
+margin: auto;
+padding: 8px 42px 0px;
+direction: ltr;
+}
+
+footer p{
+	font-family: monospace;
+	font-size: 0.7em;
+}
+
+.article ul,.article ol{
+margin: 0 25px 4px 0;
+}
+
+.btn-info.xsmall {
+font-size: 1em;
+padding: 7px 10px;
+position: absolute;
+bottom: 0;
+left: 0;
+border-radius: 0 12px 0 0;
+}
+
+
+
+
+

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+    <title>MeyT blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="MeyTGHG">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://0.0.0.0:8000/output/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://0.0.0.0:8000/output/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://0.0.0.0:8000/output/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://0.0.0.0:8000/output/theme/local.css" rel="stylesheet">
+    <link href="http://0.0.0.0:8000/output/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://0.0.0.0:8000/output">MeyT blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://0.0.0.0:8000/output/enable-hibernate-linux.html"><h1>فعال کردن Hibernate</h1></a>
+Mon 12 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><p>اگه توضیعی مثل <a href="http://manjaro.org">مانجارو</a> واسه hibernate شدن ادا در آورد یا کلن مشکلی پیش اومد...</p>
+<p>در مرحله اول ببنید پارتیشن swap وجود داره؟! اگه نبود که باید بسازید.</p>
+<p>بعد ببینید پارتیشن swap به صورت خودکار بالا میاد یا نه ؟!</p>
+<div class="highlight"><pre><span class="nv">$ </span>free -h
+</pre></div>
+
+
+<p>اگه چیزی شناسایی نشد پس <a href="http://0.0.0.0:8000/output/tag/swap.html">فعال‌اش کنید</a></p>
+<p>فایل کانفیگ grub رو باز کنید :</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo gedit /etc/default/grub
+</pre></div>
+
+
+<p>خط زیر رو با یه فاصله به ادامه <code>GRUB_CMDLINE_LINUX_DEFAULT</code> اضافه کنید :</p>
+<div class="highlight"><pre>resume=/dev/sda8
+</pre></div>
+
+
+<p><em>نکته : <code>/dev/sda8</code> مسیر پارتیشن swap سیستم شماس که میتونید با دستور <code>sudo blkid</code> پیدا کنید‌.</em></p>
+<p>درنهایت تغییرات به این شکل میشه : </p>
+<div class="highlight"><pre>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash resume=/dev/sda8&quot;
+</pre></div>
+
+
+<p>حالا فایل رو ذخیره کنید بعد با دستور زیر تنظیمات grub دوباره با اعمال تغییرات ساخته میشه.</p>
+<div class="highlight"><pre><span class="nv">$ </span>grub-mkconfig -o /boot/grub/grub.cfg
+</pre></div></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/simple-upload-script-to-transfer.sh.html"><h2>اسکریپت اپلود در Transfer.sh</h2></a>
+        <div class= "well small"> Mon 12 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>قبلن <a href="http://jadi.net">جادی</a> یه سرویسی معرفی کرد به اسم <a href="http://transfer.sh">Transfer.sh</a> که برای اپلود سریع و راحت فایل (از طریق bash ) استفاده میشه . بر طبق نیازی که داشتم واسه ارسال فایل برای دوستام این اسکریپ رو نوشتم که ادرس فایل رو میگیره اپلود میکنه لینک میده :)</p>
+<p><em>البته سرویس transfer.sh مدت ...</em></p> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/simple-upload-script-to-transfer.sh.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/thunar-custom-actions.html"><h2>اکشن های Thunar</h2></a>
+        <div class= "well small"> Mon 12 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>فایل منیجر سبک و قوی مثل Thunar یه قابلیت خوبی داره همین Custom Action هست ، میشه باهاش در کلیک راست اکشن های مختلفی تعریف کرد. قبل اینکه من به فکر این پست باشم آرچ توی ویکیش یه لیست خفن گزاشته میتونید از اون هم استفاده کنید .
+مسیر اکشن های Thunar ...</p> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/thunar-custom-actions.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/fix-wifi-problem-asus-x551ca.html"><h2>حل مشکل کار نکردن وای‌فای در لپ‌تاپ Asus سری x</h2></a>
+        <div class= "well small"> Sun 11 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/modprobe.d/asus-wifi.conf
+</pre></div>
+
+
+<p>و خط زیر رو بهش اضافه کنید </p>
+<div class="highlight"><pre>options asus_nb_wmi wapf=1
+</pre></div>
+
+
+<p>و بعد یه Restart  </p> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/fix-wifi-problem-asus-x551ca.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/auto-mount-swap-on-linux.html"><h2>بارگزاری خودکار Swap</h2></a>
+        <div class= "well small"> Sun 11 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>در بعضی توزیع ها یا به علت بعضی تغییرات ممکنه در حالت پیش‌فرض پارتیشن SWAP بارگزاری نشه برای اینکار مراحل زیر رو دنبال میکنیم .</p>
+<ul>
+<li>نکته : پارتیشن هایی که بصورت خودکار لود میشن از فایل <code>/etc/fstab</code>   فراخوانی میشن .</li>
+</ul>
+<p>با این دستور UUID پارتیشن مربوط به swap رو نمایش میده ...</p> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/auto-mount-swap-on-linux.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/compile-cython-code-python.html"><h2>کامپایل کد های پایتون</h2></a>
+        <div class= "well small"> Sun 11 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>با استفاده از برنامه cython کد های پایتون رو میشه به c تغییر داد و کامپایل کرد و در نهایت در پروژه import !
+خیلی دنبال همچین چیزی بودم و تشکر میکنم از دوست خوبم اقا وحید که این رو معرفی کردن.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo pip install cython
+</pre></div>
+
+
+<p>فایلی که قصد کامپایل کردن ...</p> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/compile-cython-code-python.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/create-wifi-hotspot-linux-arch.html"><h2>ساختن Wifi - Hotspot در لینوکس</h2></a>
+        <div class= "well small"> Sun 11 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>اشتراک گزاری اینترنت یا ایجاد شبکه محلی با دستگاه های دارای وای‌فای
+- توزیع انتخابی Arch
+- برنامه مورد نیاز create_ap </p>
+<p>1) تشخیص دستگاهی که از AP پشتیبانی میکنه</p>
+<div class="highlight"><pre><span class="nv">$ </span>iw list
+</pre></div>
+
+
+<p>خروجی مثل این رو میبینین که اگه AP جز لیست بود میریم مرحله بعدی ...</p>
+<div class="highlight"><pre>Wiphy phy1
+...
+Supported interface modes:
+* IBSS ...</pre></div> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/create-wifi-hotspot-linux-arch.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/about.html"><h2>درباره من</h2></a>
+        <div class= "well small"> Sat 10 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>توضیح کاملی فعلن اماده نکردم اما مختصر میگم که اینجا یادداشت هایی رو قرار میدم که واسشون وقت گذاشتم 
+و ممکنه یادم بره و البته ممکنه واسه کسی هم مفید باشه. من چه دانم؟!
+می‌تی یا <code>MeyT</code> هم اسم محاوره همون مهدی :)</p> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/about.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/how-to-use-mpd.html"><h2>استفاده از MPD</h2></a>
+        <div class= "well small"> Sat 10 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>==============================</p>
+<p><img alt="Alt text" src="/path/to/img.jpg" /></p>
+<p>$
+$ sudo gedit /etc/mpd.conf</p>
+<div class="highlight"><pre>pid_file &quot;/run/mpd/mpd.pid&quot;
+db_file &quot;/var/lib/mpd/mpd.db&quot;
+state_file &quot;/var/lib/mpd/mpdstate&quot;
+playlist_directory &quot;/var/lib/mpd/playlists&quot;
+music_directory    &quot;/mnt/multimedia/Music/GMuPack/Dubstep&#39;s/&quot;
+
+log_level            &quot;verbose&quot;
+auto_update    &quot;yes&quot;
+auto_update_depth &quot;3&quot;
+follow_outside_symlinks    &quot;yes&quot;
+follow_inside_symlinks        &quot;yes&quot;
+
+audio_output {
+type &quot;alsa&quot;
+name &quot;My ALSA Device ...</pre></div> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/how-to-use-mpd.html">ادامه</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://0.0.0.0:8000/output/multiple-png-to-svg-convert-bash.html"><h2>تبدیل دسته‌ای فایل‌ها گرافیکی در ترمینال لینوکس</h2></a>
+        <div class= "well small"> Sat 10 January 2015
+
+توسط  <a class="url fn" href="http://0.0.0.0:8000/output/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>یه دسته فایل svg داشتم که ترجیح دادم به جای جستجوی فرمت png اونارو خودم تبدیل کنم برای اینکار برنامه معروف گرافیکی inkscape رو نصب کنید و اسکریپت bash زیر رو با نام (دلخواه) convert توی فولدر محتوی فایل هاتون قرار بدید و اجرا کنید .</p>
+<h4>اسکریپت</h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4 ...</pre></div></td></tr></table> <a class="btn btn-info xsmall" href="http://0.0.0.0:8000/output/multiple-png-to-svg-convert-bash.html">ادامه</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; قبلی</a></li>
+
+    <li class="active"><a href="http://0.0.0.0:8000/output/category/yddsht-h.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; بعدی</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                دسترسی سریع
+                </li>
+            
+                <li><a href="http://0.0.0.0:8000/output">صفحه اول</a>
+                <li><a href="http://0.0.0.0:8000/output/archives.html">آرشیو</a>
+                <li><a href="http://0.0.0.0:8000/output/tags.html">برچسب ها</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                موضوعات
+                </li>
+                
+                <li><a href="http://0.0.0.0:8000/output/category/yddsht-h.html">یادداشت ها</a></li>
+                   
+            </ul>
+            </div>
+
+
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://0.0.0.0:8000/output">MeyT blog</a> &copy; MeyTGHG 2015</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://0.0.0.0:8000/output/theme/jquery1.8.3.js"></script>
+<script src="http://0.0.0.0:8000/output/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>
