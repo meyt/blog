@@ -67,17 +67,17 @@ Sun 11 January 2015
 <li>نکته : پارتیشن هایی که بصورت خودکار لود میشن در فایل <code>/etc/fstab</code>  تعریف شده‌.</li>
 </ul>
 <p>با این دستور UUID پارتیشن مربوط به swap رو نمایش میده</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo blkid
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">blkid</span>
 </pre></div>
 
 
 <p>حالا فایل fstab رو باز کرده </p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo gedit /etc/fstab
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
 </pre></div>
 
 
 <p>و خط زیر رو به انتهای فایل اضافه می‌کنیم :</p>
-<div class="highlight"><pre>UUID=a40fae71-931f-44a0-80e4-ea1d10b0b68c none            swap    sw              0       0
+<div class="highlight"><pre><span class="n">UUID</span><span class="o">=</span><span class="n">a40fae71</span><span class="o">-</span><span class="mf">931f</span><span class="o">-</span><span class="mi">44</span><span class="n">a0</span><span class="o">-</span><span class="mf">80e4</span><span class="o">-</span><span class="n">ea1d10b0b68c</span> <span class="n">none</span>            <span class="n">swap</span>    <span class="n">sw</span>              <span class="mi">0</span>       <span class="mi">0</span>
 </pre></div>
 
 

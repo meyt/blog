@@ -72,87 +72,87 @@ Sun 11 January 2015
 - توزیع انتخابی Arch
 - برنامه مورد نیاز create_ap </p>
 <p>1) تشخیص دستگاهی که از AP پشتیبانی میکنه</p>
-<div class="highlight"><pre><span class="nv">$ </span>iw list
+<div class="highlight"><pre><span class="err">$</span> <span class="n">iw</span> <span class="n">list</span>
 </pre></div>
 
 
 <p>خروجی مثل این رو میبینین که اگه AP جز لیست بود میریم مرحله بعدی ...</p>
-<div class="highlight"><pre>Wiphy phy1
-...
-Supported interface modes:
-* IBSS
-* managed
-* AP
-* AP/VLAN
-* WDS
-* monitor
-* mesh point
-...
+<div class="highlight"><pre><span class="n">Wiphy</span> <span class="n">phy1</span>
+<span class="p">...</span>
+<span class="n">Supported</span> <span class="n">interface</span> <span class="n">modes</span><span class="o">:</span>
+<span class="o">*</span> <span class="n">IBSS</span>
+<span class="o">*</span> <span class="n">managed</span>
+<span class="o">*</span> <span class="n">AP</span>
+<span class="o">*</span> <span class="n">AP</span><span class="o">/</span><span class="n">VLAN</span>
+<span class="o">*</span> <span class="n">WDS</span>
+<span class="o">*</span> <span class="n">monitor</span>
+<span class="o">*</span> <span class="n">mesh</span> <span class="n">point</span>
+<span class="p">...</span>
 </pre></div>
 
 
 <p>۲) نصب برنامه </p>
-<div class="highlight"><pre><span class="p">$</span><span class="nv">yaourt</span><span class="x"> -S create_ap</span>
+<div class="highlight"><pre><span class="err">$</span><span class="n">yaourt</span> <span class="o">-</span><span class="n">S</span> <span class="n">create_ap</span>
 </pre></div>
 
 
 <p>یا
 https://github.com/oblique/create_ap</p>
 <p>۳) تشخیص اینترفیس </p>
-<div class="highlight"><pre><span class="nv">$ </span>iw dev
+<div class="highlight"><pre><span class="err">$</span> <span class="n">iw</span> <span class="n">dev</span>
 </pre></div>
 
 
 <p>خروجی مثل این رو میبینید که نشون میده اینترفیس شبکه دستگاه phy0 برابر wlp2s0</p>
-<div class="highlight"><pre>phy#0
-Interface wlp2s0
-ifindex 3
-wdev 0x1
-addr 24:0a:64:83:f0:e9
-type managed
-channel 6 (2437 MHz), width: 20 MHz, center1: 2437 MHz
+<div class="highlight"><pre><span class="n">phy</span><span class="err">#</span><span class="mi">0</span>
+<span class="n">Interface</span> <span class="n">wlp2s0</span>
+<span class="n">ifindex</span> <span class="mi">3</span>
+<span class="n">wdev</span> <span class="mh">0x1</span>
+<span class="n">addr</span> <span class="mi">24</span><span class="o">:</span><span class="mi">0</span><span class="n">a</span><span class="o">:</span><span class="mi">64</span><span class="o">:</span><span class="mi">83</span><span class="o">:</span><span class="n">f0</span><span class="o">:</span><span class="n">e9</span>
+<span class="n">type</span> <span class="n">managed</span>
+<span class="n">channel</span> <span class="mi">6</span> <span class="p">(</span><span class="mi">2437</span> <span class="n">MHz</span><span class="p">),</span> <span class="n">width</span><span class="o">:</span> <span class="mi">20</span> <span class="n">MHz</span><span class="p">,</span> <span class="n">center1</span><span class="o">:</span> <span class="mi">2437</span> <span class="n">MHz</span>
 </pre></div>
 
 
 <p>۳ ) ایجاد hotspot یا access point</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo create_ap wlp2s0 wlp2s0 MyAccessPoint MyPassword
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">create_ap</span> <span class="n">wlp2s0</span> <span class="n">wlp2s0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassword</span>
 
-:: <span class="nv">MyAccessPoint</span> <span class="o">=</span> نام نقطه دستیابی
-:: <span class="nv">MyPassword</span> <span class="o">=</span> کلمه عبور
+<span class="o">::</span> <span class="n">MyAccessPoint</span> <span class="o">=</span> <span class="err">نام</span> <span class="err">نقطه</span> <span class="err">دستیابی</span>
+<span class="o">::</span> <span class="n">MyPassword</span> <span class="o">=</span> <span class="err">کلمه</span> <span class="err">عبور</span>
 </pre></div>
 
 
 <p>این دستور در حالت رمزگزاری WPA + WPA2 بود برای استفاده از حالت‌های دیگه از رفرنس خود برنامه میتونید استفاده کنید : https://github.com/oblique/create_ap</p>
-<div class="highlight"><pre>Examples
-No passphrase (open network):
-create_ap wlan0 eth0 MyAccessPoint
+<div class="highlight"><pre><span class="n">Examples</span>
+<span class="n">No</span> <span class="n">passphrase</span> <span class="p">(</span><span class="n">open</span> <span class="n">network</span><span class="p">)</span><span class="o">:</span>
+<span class="n">create_ap</span> <span class="n">wlan0</span> <span class="n">eth0</span> <span class="n">MyAccessPoint</span>
 
-WPA + WPA2 passphrase:
-create_ap wlan0 eth0 MyAccessPoint MyPassPhrase
+<span class="n">WPA</span> <span class="o">+</span> <span class="n">WPA2</span> <span class="n">passphrase</span><span class="o">:</span>
+<span class="n">create_ap</span> <span class="n">wlan0</span> <span class="n">eth0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassPhrase</span>
 
-AP without Internet sharing:
-create_ap -n wlan0 MyAccessPoint MyPassPhrase
+<span class="n">AP</span> <span class="n">without</span> <span class="n">Internet</span> <span class="n">sharing</span><span class="o">:</span>
+<span class="n">create_ap</span> <span class="o">-</span><span class="n">n</span> <span class="n">wlan0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassPhrase</span>
 
-Bridged Internet sharing:
-create_ap -m bridge wlan0 eth0 MyAccessPoint MyPassPhrase
+<span class="n">Bridged</span> <span class="n">Internet</span> <span class="n">sharing</span><span class="o">:</span>
+<span class="n">create_ap</span> <span class="o">-</span><span class="n">m</span> <span class="n">bridge</span> <span class="n">wlan0</span> <span class="n">eth0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassPhrase</span>
 
-Bridged Internet sharing (pre-configured bridge interface):
-create_ap -m bridge wlan0 br0 MyAccessPoint MyPassPhrase
+<span class="n">Bridged</span> <span class="n">Internet</span> <span class="n">sharing</span> <span class="p">(</span><span class="n">pre</span><span class="o">-</span><span class="n">configured</span> <span class="n">bridge</span> <span class="n">interface</span><span class="p">)</span><span class="o">:</span>
+<span class="n">create_ap</span> <span class="o">-</span><span class="n">m</span> <span class="n">bridge</span> <span class="n">wlan0</span> <span class="n">br0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassPhrase</span>
 
-Internet sharing from the same WiFi interface:
-create_ap wlan0 wlan0 MyAccessPoint MyPassPhrase
+<span class="n">Internet</span> <span class="n">sharing</span> <span class="n">from</span> <span class="n">the</span> <span class="n">same</span> <span class="n">WiFi</span> <span class="n">interface</span><span class="o">:</span>
+<span class="n">create_ap</span> <span class="n">wlan0</span> <span class="n">wlan0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassPhrase</span>
 
-Choose a different WiFi adapter driver
-create_ap --driver rtl871xdrv wlan0 eth0 MyAccessPoint MyPassPhrase
+<span class="n">Choose</span> <span class="n">a</span> <span class="n">different</span> <span class="n">WiFi</span> <span class="n">adapter</span> <span class="n">driver</span>
+<span class="n">create_ap</span> <span class="o">--</span><span class="n">driver</span> <span class="n">rtl871xdrv</span> <span class="n">wlan0</span> <span class="n">eth0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassPhrase</span>
 
-No passphrase (open network) using pipe:
-echo -e &quot;MyAccessPoint&quot; | create_ap wlan0 eth0
+<span class="n">No</span> <span class="n">passphrase</span> <span class="p">(</span><span class="n">open</span> <span class="n">network</span><span class="p">)</span> <span class="n">using</span> <span class="n">pipe</span><span class="o">:</span>
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s">&quot;MyAccessPoint&quot;</span> <span class="o">|</span> <span class="n">create_ap</span> <span class="n">wlan0</span> <span class="n">eth0</span>
 
-WPA + WPA2 passphrase using pipe:
-echo -e &quot;MyAccessPoint\nMyPassPhrase&quot; | create_ap wlan0 eth0
+<span class="n">WPA</span> <span class="o">+</span> <span class="n">WPA2</span> <span class="n">passphrase</span> <span class="n">using</span> <span class="n">pipe</span><span class="o">:</span>
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s">&quot;MyAccessPoint</span><span class="se">\n</span><span class="s">MyPassPhrase&quot;</span> <span class="o">|</span> <span class="n">create_ap</span> <span class="n">wlan0</span> <span class="n">eth0</span>
 
-Enable IEEE 802.11n
-create_ap --ieee80211n --ht_capab &#39;[HT40+]&#39; wlan0 eth0 MyAccessPoint MyPassPhrase
+<span class="n">Enable</span> <span class="n">IEEE</span> <span class="mf">802.11</span><span class="n">n</span>
+<span class="n">create_ap</span> <span class="o">--</span><span class="n">ieee80211n</span> <span class="o">--</span><span class="n">ht_capab</span> <span class="err">&#39;</span><span class="p">[</span><span class="n">HT40</span><span class="o">+</span><span class="p">]</span><span class="err">&#39;</span> <span class="n">wlan0</span> <span class="n">eth0</span> <span class="n">MyAccessPoint</span> <span class="n">MyPassPhrase</span>
 </pre></div></div>
         <hr />
     </div>

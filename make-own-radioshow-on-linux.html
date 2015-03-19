@@ -53,8 +53,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>حل مشکل کار نکردن وای‌فای در لپ‌تاپ Asus سری x</h1>
-Sun 11 January 2015
+            <h1>رادیوشو خودتونو راه بندازید!</h1>
+Thu 19 March 2015
 
 توسط  <a class="url fn" href="http://meyt.github.io/blog/author/meytghg.html">MeyTGHG</a>
  
@@ -62,18 +62,46 @@ Sun 11 January 2015
 
         </div>
 	
-        <div><div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">modprobe</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">asus</span><span class="o">-</span><span class="n">wifi</span><span class="p">.</span><span class="n">conf</span>
+        <div><p>رادیوشو = یه نوع برنامه شنیداری که از طریق رادیو یا اینترنت میشه ازش استفاده کرد.(البته من ترجیح میدم بیشتر موزیک پخش بشه تا سخنرانی)
+اگه تو شرکت یا خونتون یه چنین چیزیو لازم داشتید یا همسایه های باحالی داشتید و توی محله خواستید رادیو شو رابندازید به تست کردنش می ارزه!
+خب 3تا برنامه انتخاب کردم واس اینکار 
+icecast = یه ستریمر واسه پخش کردن موزیک توی شبکه
+mixxx = یه دستگاه دی‌جی خوش دست 
+vlc = و یه مدیاپلیر معروف که بشه باهاش به رادیو گوش داد</p>
+<p>نصب برنامه ها:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">icecast2</span> <span class="n">mixxx</span> <span class="n">vlc</span>
 </pre></div>
 
 
-<p>و خط زیر رو بهش اضافه کنید </p>
-<div class="highlight"><pre><span class="n">options</span> <span class="n">asus_nb_wmi</span> <span class="n">wapf</span><span class="o">=</span><span class="mi">1</span>
+<p>تنظیم جزئیات (یوزرها و پسورد ها رو دقت داشته باشید):</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">icecast2</span><span class="o">/</span><span class="n">icecast</span><span class="p">.</span><span class="n">xml</span>
 </pre></div>
 
 
-<p>و بعد یه Restart  </p>
-<h4>آپدیت</h4>
-<p>در کرنل 3.19 این مشکل حل شده !</p></div>
+<p>راه اندازی مجدد icecast:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">service</span> <span class="n">icecast2</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>حالا وارد برنامه mixxx میشیم رادیو شو خودمونو اماده میکنیم. و به ترتیب</p>
+<div class="highlight"><pre><span class="gh">Options=&gt;Prefrences=&gt;Live broadcasting</span>
+<span class="gh">======================================</span>
+Type=icecast2
+Mount=/live
+Host=localhost
+Port=8000
+Login=source
+Password=hackme
+</pre></div>
+
+
+<p>بقیه آپشن ها هم به انتخاب خودتون </p>
+<p>بعد وارد مرورگرتون بشید :</p>
+<div class="highlight"><pre><span class="nl">http:</span><span class="c1">//localhost:8000/admin/</span>
+</pre></div>
+
+
+<p>یوزر ادمین و پسوردشو وارد کنید و رادیوشو فعلی رو بالاش گزینه m3u رو انتخاب کنید و برای گوش دادن به رادیو ،فایل دیافتی رو با VLC بازش کنید .</p></div>
 	
         <hr>
 

@@ -58,8 +58,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://meyt.github.io/blog/enable-hibernate-linux.html"><h1>فعال کردن Hibernate</h1></a>
-Mon 12 January 2015
+            <a href="http://meyt.github.io/blog/make-own-radioshow-on-linux.html"><h1>رادیوشو خودتونو راه بندازید!</h1></a>
+Thu 19 March 2015
 
 توسط  <a class="url fn" href="http://meyt.github.io/blog/author/meytghg.html">MeyTGHG</a>
  
@@ -68,36 +68,75 @@ Mon 12 January 2015
  
         </div>
         
-        <div><p>اگه توضیعی مثل <a href="http://manjaro.org">مانجارو</a> واسه hibernate شدن ادا در آورد یا کلن مشکلی پیش اومد...</p>
-<p>در مرحله اول ببنید پارتیشن swap وجود داره؟! اگه نبود که باید بسازید.</p>
-<p>بعد ببینید پارتیشن swap به صورت خودکار بالا میاد یا نه ؟!</p>
-<div class="highlight"><pre><span class="nv">$ </span>free -h
+        <div><p>رادیوشو = یه نوع برنامه شنیداری که از طریق رادیو یا اینترنت میشه ازش استفاده کرد.(البته من ترجیح میدم بیشتر موزیک پخش بشه تا سخنرانی)
+اگه تو شرکت یا خونتون یه چنین چیزیو لازم داشتید یا همسایه های باحالی داشتید و توی محله خواستید رادیو شو رابندازید به تست کردنش می ارزه!
+خب 3تا برنامه انتخاب کردم واس اینکار 
+icecast = یه ستریمر واسه پخش کردن موزیک توی شبکه
+mixxx = یه دستگاه دی‌جی خوش دست 
+vlc = و یه مدیاپلیر معروف که بشه باهاش به رادیو گوش داد</p>
+<p>نصب برنامه ها:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">icecast2</span> <span class="n">mixxx</span> <span class="n">vlc</span>
 </pre></div>
 
 
-<p>اگه چیزی شناسایی نشد پس <a href="http://meyt.github.io/blog/tag/swap.html">فعال‌اش کنید</a></p>
-<p>فایل کانفیگ grub رو باز کنید :</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo gedit /etc/default/grub
+<p>تنظیم جزئیات (یوزرها و پسورد ها رو دقت داشته باشید):</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">icecast2</span><span class="o">/</span><span class="n">icecast</span><span class="p">.</span><span class="n">xml</span>
 </pre></div>
 
 
-<p>خط زیر رو با یه فاصله به ادامه <code>GRUB_CMDLINE_LINUX_DEFAULT</code> اضافه کنید :</p>
-<div class="highlight"><pre>resume=/dev/sda8
+<p>راه اندازی مجدد icecast:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">service</span> <span class="n">icecast2</span> <span class="n">restart</span>
 </pre></div>
 
 
-<p><em>نکته : <code>/dev/sda8</code> مسیر پارتیشن swap سیستم شماس که میتونید با دستور <code>sudo blkid</code> پیدا کنید‌.</em></p>
-<p>درنهایت تغییرات به این شکل میشه : </p>
-<div class="highlight"><pre>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash resume=/dev/sda8&quot;
+<p>حالا وارد برنامه mixxx میشیم رادیو شو خودمونو اماده میکنیم. و به ترتیب</p>
+<div class="highlight"><pre><span class="gh">Options=&gt;Prefrences=&gt;Live broadcasting</span>
+<span class="gh">======================================</span>
+Type=icecast2
+Mount=/live
+Host=localhost
+Port=8000
+Login=source
+Password=hackme
 </pre></div>
 
 
-<p>حالا فایل رو ذخیره کنید بعد با دستور زیر تنظیمات grub دوباره با اعمال تغییرات ساخته میشه.</p>
-<div class="highlight"><pre><span class="nv">$ </span>grub-mkconfig -o /boot/grub/grub.cfg
-</pre></div></div>
+<p>بقیه آپشن ها هم به انتخاب خودتون </p>
+<p>بعد وارد مرورگرتون بشید :</p>
+<div class="highlight"><pre><span class="nl">http:</span><span class="c1">//localhost:8000/admin/</span>
+</pre></div>
+
+
+<p>یوزر ادمین و پسوردشو وارد کنید و رادیوشو فعلی رو بالاش گزینه m3u رو انتخاب کنید و برای گوش دادن به رادیو ،فایل دیافتی رو با VLC بازش کنید .</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://meyt.github.io/blog/enable-hibernate-linux.html"><h2>فعال کردن Hibernate</h2></a>
+        <div class= "well small"> Mon 12 January 2015
+
+توسط  <a class="url fn" href="http://meyt.github.io/blog/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>اگه توضیعی مثل <a href="http://manjaro.org">مانجارو</a> واسه hibernate شدن ادا در آورد یا کلن مشکلی پیش اومد...</p>
+<p>در مرحله اول ببنید پارتیشن swap وجود داره؟! اگه نبود که باید بسازید.</p>
+<p>بعد ببینید پارتیشن swap به صورت خودکار بالا میاد یا نه ؟!</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">free</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+
+
+<p>اگه چیزی شناسایی نشد پس <a href="tag/swap.html">فعال‌اش کنید</a></p>
+<p>فایل ...</p> <a class="btn btn-info xsmall" href="http://meyt.github.io/blog/enable-hibernate-linux.html">ادامه</a></div>
+    </div>	
+				
 
  
         
@@ -151,12 +190,12 @@ Mon 12 January 2015
 
 
  </div>
-        <div class="summary"><div class="highlight"><pre><span class="nv">$ </span>sudo nano /etc/modprobe.d/asus-wifi.conf
+        <div class="summary"><div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">modprobe</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">asus</span><span class="o">-</span><span class="n">wifi</span><span class="p">.</span><span class="n">conf</span>
 </pre></div>
 
 
 <p>و خط زیر رو بهش اضافه کنید </p>
-<div class="highlight"><pre>options asus_nb_wmi wapf=1
+<div class="highlight"><pre><span class="n">options</span> <span class="n">asus_nb_wmi</span> <span class="n">wapf</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 
 
@@ -204,12 +243,12 @@ Mon 12 January 2015
  </div>
         <div class="summary"><p>با استفاده از برنامه cython کد های پایتون رو میشه به c تغییر داد و کامپایل کرد و در نهایت در پروژه import !
 .</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo pip install cython
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span>
 </pre></div>
 
 
 <p>فایلی که قصد کامپایل کردن‌اش رو دارید به این صورت وارد کنید تا تبدیل به کد c  بشه ::</p>
-<div class="highlight"><pre><span class="nv">$ </span>cython -a mytest.pyx ...</pre></div> <a class="btn btn-info xsmall" href="http://meyt.github.io/blog/compile-cython-code-python.html">ادامه</a></div>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cython</span> <span class="o">-</span><span class="n">a</span> <span class="n">mytest</span><span class="p">.</span><span class="n">pyx ...</span></pre></div> <a class="btn btn-info xsmall" href="http://meyt.github.io/blog/compile-cython-code-python.html">ادامه</a></div>
     </div>	
 				
 
@@ -231,15 +270,15 @@ Mon 12 January 2015
 - توزیع انتخابی Arch
 - برنامه مورد نیاز create_ap </p>
 <p>1) تشخیص دستگاهی که از AP پشتیبانی میکنه</p>
-<div class="highlight"><pre><span class="nv">$ </span>iw list
+<div class="highlight"><pre><span class="err">$</span> <span class="n">iw</span> <span class="n">list</span>
 </pre></div>
 
 
 <p>خروجی مثل این رو میبینین که اگه AP جز لیست بود میریم مرحله بعدی ...</p>
-<div class="highlight"><pre>Wiphy phy1
-...
-Supported interface modes:
-* IBSS ...</pre></div> <a class="btn btn-info xsmall" href="http://meyt.github.io/blog/create-wifi-hotspot-linux-arch.html">ادامه</a></div>
+<div class="highlight"><pre><span class="n">Wiphy</span> <span class="n">phy1</span>
+<span class="p">...</span>
+<span class="n">Supported</span> <span class="n">interface</span> <span class="n">modes</span><span class="o">:</span>
+<span class="o">*</span> <span class="n">IBSS ...</span></pre></div> <a class="btn btn-info xsmall" href="http://meyt.github.io/blog/create-wifi-hotspot-linux-arch.html">ادامه</a></div>
     </div>	
 				
 

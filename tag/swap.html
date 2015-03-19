@@ -71,29 +71,29 @@ Mon 12 January 2015
         <div><p>اگه توضیعی مثل <a href="http://manjaro.org">مانجارو</a> واسه hibernate شدن ادا در آورد یا کلن مشکلی پیش اومد...</p>
 <p>در مرحله اول ببنید پارتیشن swap وجود داره؟! اگه نبود که باید بسازید.</p>
 <p>بعد ببینید پارتیشن swap به صورت خودکار بالا میاد یا نه ؟!</p>
-<div class="highlight"><pre><span class="nv">$ </span>free -h
+<div class="highlight"><pre><span class="err">$</span> <span class="n">free</span> <span class="o">-</span><span class="n">h</span>
 </pre></div>
 
 
-<p>اگه چیزی شناسایی نشد پس <a href="http://meyt.github.io/blog/tag/swap.html">فعال‌اش کنید</a></p>
+<p>اگه چیزی شناسایی نشد پس <a href="tag/swap.html">فعال‌اش کنید</a></p>
 <p>فایل کانفیگ grub رو باز کنید :</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo gedit /etc/default/grub
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="n">grub</span>
 </pre></div>
 
 
 <p>خط زیر رو با یه فاصله به ادامه <code>GRUB_CMDLINE_LINUX_DEFAULT</code> اضافه کنید :</p>
-<div class="highlight"><pre>resume=/dev/sda8
+<div class="highlight"><pre><span class="n">resume</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda8</span>
 </pre></div>
 
 
 <p><em>نکته : <code>/dev/sda8</code> مسیر پارتیشن swap سیستم شماس که میتونید با دستور <code>sudo blkid</code> پیدا کنید‌.</em></p>
 <p>درنهایت تغییرات به این شکل میشه : </p>
-<div class="highlight"><pre>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash resume=/dev/sda8&quot;
+<div class="highlight"><pre><span class="n">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s">&quot;quiet splash resume=/dev/sda8&quot;</span>
 </pre></div>
 
 
 <p>حالا فایل رو ذخیره کنید بعد با دستور زیر تنظیمات grub دوباره با اعمال تغییرات ساخته میشه.</p>
-<div class="highlight"><pre><span class="nv">$ </span>grub-mkconfig -o /boot/grub/grub.cfg
+<div class="highlight"><pre><span class="err">$</span> <span class="n">grub</span><span class="o">-</span><span class="n">mkconfig</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">grub</span><span class="o">/</span><span class="n">grub</span><span class="p">.</span><span class="n">cfg</span>
 </pre></div></div>
         <hr />
     </div>

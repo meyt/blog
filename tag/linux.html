@@ -58,8 +58,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://meyt.github.io/blog/multiple-png-to-svg-convert-bash.html"><h1>تبدیل دسته‌ای فایل‌ها گرافیکی در ترمینال لینوکس</h1></a>
-Sat 10 January 2015
+            <a href="http://meyt.github.io/blog/make-own-radioshow-on-linux.html"><h1>رادیوشو خودتونو راه بندازید!</h1></a>
+Thu 19 March 2015
 
 توسط  <a class="url fn" href="http://meyt.github.io/blog/author/meytghg.html">MeyTGHG</a>
  
@@ -68,21 +68,46 @@ Sat 10 January 2015
  
         </div>
         
-        <div><p>یه دسته فایل svg داشتم که ترجیح دادم به جای جستجوی فرمت png اونارو خودم تبدیل کنم برای اینکار برنامه معروف گرافیکی inkscape رو نصب کنید و اسکریپت bash زیر رو با نام (دلخواه) convert توی فولدر محتوی فایل هاتون قرار بدید و اجرا کنید .</p>
-<h4>اسکریپت</h4>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
-<span class="k">for </span>i in *.svg; <span class="k">do</span>
-<span class="k">    </span>inkscape --without-gui --export-png<span class="o">=</span><span class="s2">&quot;$(basename $i .svg).png&quot;</span> <span class="nv">$i</span>
-<span class="k">done</span>
+        <div><p>رادیوشو = یه نوع برنامه شنیداری که از طریق رادیو یا اینترنت میشه ازش استفاده کرد.(البته من ترجیح میدم بیشتر موزیک پخش بشه تا سخنرانی)
+اگه تو شرکت یا خونتون یه چنین چیزیو لازم داشتید یا همسایه های باحالی داشتید و توی محله خواستید رادیو شو رابندازید به تست کردنش می ارزه!
+خب 3تا برنامه انتخاب کردم واس اینکار 
+icecast = یه ستریمر واسه پخش کردن موزیک توی شبکه
+mixxx = یه دستگاه دی‌جی خوش دست 
+vlc = و یه مدیاپلیر معروف که بشه باهاش به رادیو گوش داد</p>
+<p>نصب برنامه ها:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">icecast2</span> <span class="n">mixxx</span> <span class="n">vlc</span>
 </pre></div>
-</td></tr></table>
 
-<h4>اجرا</h4>
-<div class="highlight"><pre><span class="err">$</span> <span class="p">.</span><span class="o">/</span><span class="n">convert</span>
-</pre></div></div>
+
+<p>تنظیم جزئیات (یوزرها و پسورد ها رو دقت داشته باشید):</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">icecast2</span><span class="o">/</span><span class="n">icecast</span><span class="p">.</span><span class="n">xml</span>
+</pre></div>
+
+
+<p>راه اندازی مجدد icecast:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">service</span> <span class="n">icecast2</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>حالا وارد برنامه mixxx میشیم رادیو شو خودمونو اماده میکنیم. و به ترتیب</p>
+<div class="highlight"><pre><span class="gh">Options=&gt;Prefrences=&gt;Live broadcasting</span>
+<span class="gh">======================================</span>
+Type=icecast2
+Mount=/live
+Host=localhost
+Port=8000
+Login=source
+Password=hackme
+</pre></div>
+
+
+<p>بقیه آپشن ها هم به انتخاب خودتون </p>
+<p>بعد وارد مرورگرتون بشید :</p>
+<div class="highlight"><pre><span class="nl">http:</span><span class="c1">//localhost:8000/admin/</span>
+</pre></div>
+
+
+<p>یوزر ادمین و پسوردشو وارد کنید و رادیوشو فعلی رو بالاش گزینه m3u رو انتخاب کنید و برای گوش دادن به رادیو ،فایل دیافتی رو با VLC بازش کنید .</p></div>
         <hr />
     </div>
 		
@@ -90,7 +115,7 @@ Sat 10 January 2015
 <ul>
     <li class="prev disabled"><a href="#">&larr; قبلی</a></li>
 
-    <li class="active"><a href="http://meyt.github.io/blog/tag/tbdyl-fyl.html">1</a></li>
+    <li class="active"><a href="http://meyt.github.io/blog/tag/linux.html">1</a></li>
 
     <li class="next disabled"><a href="#">&rarr; بعدی</a></li>
 

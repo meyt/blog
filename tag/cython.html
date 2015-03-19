@@ -70,27 +70,27 @@ Sun 11 January 2015
         
         <div><p>با استفاده از برنامه cython کد های پایتون رو میشه به c تغییر داد و کامپایل کرد و در نهایت در پروژه import !
 .</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo pip install cython
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span>
 </pre></div>
 
 
 <p>فایلی که قصد کامپایل کردن‌اش رو دارید به این صورت وارد کنید تا تبدیل به کد c  بشه ::</p>
-<div class="highlight"><pre><span class="nv">$ </span>cython -a mytest.pyx
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cython</span> <span class="o">-</span><span class="n">a</span> <span class="n">mytest</span><span class="p">.</span><span class="n">pyx</span>
 </pre></div>
 
 
 <p>محتوای فایل mytest.pyx </p>
-<div class="highlight"><pre>def fib(n):
-    &quot;&quot;&quot;Print the Fibonacci series up to n.&quot;&quot;&quot;
-    a, b = 0, 1
-    while b &lt; n:
-    print b,
-    a, b = b, a + b
+<div class="highlight"><pre><span class="n">def</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">&quot;&quot;&quot;Print the Fibonacci series up to n.&quot;&quot;&quot;</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">:</span>
+    <span class="n">print</span> <span class="n">b</span><span class="p">,</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 
 
 <p>واما کامپایل :) </p>
-<div class="highlight"><pre><span class="nv">$ </span>gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -I/usr/include/python2.7 -o mytest.so mytest.c
+<div class="highlight"><pre><span class="err">$</span> <span class="n">gcc</span> <span class="o">-</span><span class="n">shared</span> <span class="o">-</span><span class="n">pthread</span> <span class="o">-</span><span class="n">fPIC</span> <span class="o">-</span><span class="n">fwrapv</span> <span class="o">-</span><span class="n">O2</span> <span class="o">-</span><span class="n">Wall</span> <span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">strict</span><span class="o">-</span><span class="n">aliasing</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span> <span class="o">-</span><span class="n">o</span> <span class="n">mytest</span><span class="p">.</span><span class="n">so</span> <span class="n">mytest</span><span class="p">.</span><span class="n">c</span>
 </pre></div></div>
         <hr />
     </div>
