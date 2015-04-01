@@ -58,8 +58,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://meyt.github.io/blog/make-own-radioshow-on-linux.html"><h1>رادیوشو خودتونو راه بندازید!</h1></a>
-Thu 19 March 2015
+            <a href="http://meyt.github.io/blog/minify-php-codes.html"><h1>فشرده کردن کد های php</h1></a>
+Wed 01 April 2015
 
 توسط  <a class="url fn" href="http://meyt.github.io/blog/author/meytghg.html">MeyTGHG</a>
  
@@ -68,49 +68,57 @@ Thu 19 March 2015
  
         </div>
         
-        <div><p>رادیوشو = یه نوع برنامه شنیداری که از طریق رادیو یا اینترنت میشه ازش استفاده کرد.(البته من ترجیح میدم بیشتر موزیک پخش بشه تا سخنرانی)
-اگه تو شرکت یا خونتون یه چنین چیزیو لازم داشتید یا همسایه های باحالی داشتید و توی محله خواستید رادیو شو رابندازید به تست کردنش می ارزه!
-خب 3تا برنامه انتخاب کردم واس اینکار 
-icecast = یه ستریمر واسه پخش کردن موزیک توی شبکه
-mixxx = یه دستگاه دی‌جی خوش دست 
-vlc = و یه مدیاپلیر معروف که بشه باهاش به رادیو گوش داد</p>
-<p>نصب برنامه ها:</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">icecast2</span> <span class="n">mixxx</span> <span class="n">vlc</span>
-</pre></div>
+        <div><p>بخاطر دسترسی محدود اینترنت(یه چیزی تو مایه‌های 3KiB/s :| ) دیگه مجبور شدم کدهای پی‌اچ‌پی رو در این حد فشرده کنم تا بشه با ftp فرستاد.
+با چند تا جستجو یه معجون آماده شد که پیش نیازش نصب بودن php  و python2.x ‌ـه.</p>
+<p>کد :</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">os</span>
+<span class="n">import</span> <span class="n">shutil</span>
+
+<span class="n">root_src_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">,</span><span class="err">&#39;</span><span class="n">scripts</span><span class="err">&#39;</span><span class="p">)</span> 
+<span class="n">root_target_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">,</span><span class="err">&#39;</span><span class="n">scripts2</span><span class="err">&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">src_dir</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="n">in</span> <span class="n">os</span><span class="p">.</span><span class="n">walk</span><span class="p">(</span><span class="n">root_src_dir</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">dst_dir</span> <span class="o">=</span> <span class="n">src_dir</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">root_src_dir</span><span class="p">,</span> <span class="n">root_target_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">not</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dst_dir</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">os</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dst_dir</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">file_</span> <span class="n">in</span> <span class="n">files</span><span class="o">:</span>
+        <span class="n">src_file</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">src_dir</span><span class="p">,</span> <span class="n">file_</span><span class="p">)</span>
+        <span class="n">dst_file</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">dst_dir</span><span class="p">,</span> <span class="n">file_</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dst_file</span><span class="p">)</span><span class="o">:</span>
+            <span class="n">os</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">dst_file</span><span class="p">)</span>
 
 
-<p>تنظیم جزئیات (یوزرها و پسورد ها رو دقت داشته باشید):</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">icecast2</span><span class="o">/</span><span class="n">icecast</span><span class="p">.</span><span class="n">xml</span>
-</pre></div>
-
-
-<p>راه اندازی مجدد icecast:</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="n">service</span> <span class="n">icecast2</span> <span class="n">restart</span>
-</pre></div>
-
-
-<p>حالا وارد برنامه mixxx میشیم رادیو شو خودمونو اماده میکنیم. و به ترتیب</p>
-<div class="highlight"><pre><span class="gh">Options=&gt;Prefrences=&gt;Live broadcasting</span>
-<span class="gh">======================================</span>
-Type=icecast2
-Mount=/live
-Host=localhost
-Port=8000
-Login=source
-Password=hackme
-</pre></div>
-
-
-<p>بقیه آپشن ها هم به انتخاب خودتون </p>
-<p>بعد وارد مرورگرتون بشید :</p>
-<div class="highlight"><pre><span class="nl">http:</span><span class="c1">//localhost:8000/admin/</span>
-</pre></div>
-
-
-<p>یوزر ادمین و پسوردشو وارد کنید و رادیوشو فعلی رو بالاش گزینه m3u رو انتخاب کنید و برای گوش دادن به رادیو ،فایل دیافتی رو با VLC بازش کنید .</p></div>
+        <span class="k">if</span> <span class="n">src_file</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&quot;.php&quot;</span><span class="p">)</span><span class="o">:</span>
+            <span class="n">print</span> <span class="s">&quot;compress: &quot;</span><span class="o">+</span><span class="n">src_file</span>
+            <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;php -w &#39;&quot;</span><span class="o">+</span><span class="n">src_file</span><span class="o">+</span><span class="s">&quot;&#39; &gt; &#39;&quot;</span><span class="o">+</span><span class="n">dst_file</span><span class="o">+</span><span class="s">&quot;&#39;&quot;</span><span class="p">)</span>
+            <span class="n">print</span> <span class="s">&quot; |---[ Done&quot;</span>
+        <span class="nl">else:</span>
+            <span class="n">print</span> <span class="s">&quot;copy: &quot;</span><span class="o">+</span><span class="n">src_file</span>
+            <span class="n">shutil</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">src_file</span><span class="p">,</span> <span class="n">dst_dir</span><span class="p">)</span>
+            <span class="n">print</span> <span class="s">&quot; |---[ Done&quot;</span>
+</pre></div></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://meyt.github.io/blog/make-own-radioshow-on-linux.html"><h2>رادیوشو خودتونو راه بندازید!</h2></a>
+        <div class= "well small"> Thu 19 March 2015
+
+توسط  <a class="url fn" href="http://meyt.github.io/blog/author/meytghg.html">MeyTGHG</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>رادیوشو = یه نوع برنامه شنیداری که از طریق رادیو یا اینترنت میشه ازش استفاده کرد.(البته من ترجیح میدم بیشتر موزیک پخش بشه تا سخنرانی)
+اگه تو شرکت یا خونتون یه چنین چیزیو لازم داشتید یا همسایه های باحالی داشتید و توی محله خواستید رادیو شو رابندازید به تست کردنش ...</p> <a class="btn btn-info xsmall" href="http://meyt.github.io/blog/make-own-radioshow-on-linux.html">ادامه</a></div>
+    </div>	
+				
 
  
         
